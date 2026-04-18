@@ -4,11 +4,25 @@ const productSchema = new mongoose.Schema({
   barcode: {
     type: String,
     unique: true,
+    required: true,
+    index: true
+  },
+
+  name: {
+    type: String,
     required: true
   },
-  name: String,
-  price: String,
-  stock: String,
-});
+
+  price: {
+    type: Number,
+    required: true
+  },
+
+  stock: {
+    type: Number,
+    default: 0
+  }
+
+}, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);
